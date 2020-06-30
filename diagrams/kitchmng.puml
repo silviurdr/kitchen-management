@@ -1,0 +1,83 @@
+@startuml
+
+
+title Kitchen Management Diagram
+
+package "parent" {
+
+    together {
+
+
+
+
+        class Main {
+
+        }
+
+        abstract class Employee {
+
+            - name: String
+            - birthday: String
+            - salary: Double
+            + Employee(): Employee
+            + getName(): String
+            + getSalary(): Double
+            + setSalary(): void
+            + createTaxReport(): void
+            + getTaxReport(): Double
+        }
+
+        interface KnifeAvailability {
+
+            + isWithKnife():
+
+        }
+
+    }
+
+    together {
+
+        class Chef {
+
+
+        - ingredients: ArrayList<String>
+        - hasKnife: boolean
+        + askForIngredient(String): String
+
+        }
+
+        class Cook {
+
+        - hasKnife: boolean
+        + cook(): void
+
+
+        }
+
+        class KitchenHelper {
+
+        - id: int
+        - ingredients: hashMap
+        + getId(): int
+        + setId(): void
+        + getIngredients(): hashMap
+        + hasIngredient(String): boolean
+
+        }
+
+
+    }
+
+class Chef extends Employee
+class Chef implements KnifeAvailability
+class Cook extends Employee
+class Cook implements KnifeAvailability
+class KitchenHelper extends Employee
+
+
+
+}
+
+
+
+@enduml
