@@ -10,14 +10,14 @@ package "parent" {
 
 
 
-        class Main {
+        class Cooking {
 
         }
 
         abstract class Employee {
 
             - name: String
-            - birthday: String
+            - birthDate: String
             - salary: Double
             + Employee(): Employee
             + getName(): String
