@@ -36,19 +36,17 @@ public class Kitchen {
                 System.out.println();
                 System.out.println("NEW ORDER!\n");
 
-                System.out.println("CURRENT STOCK");
-                for (KitchenHelper helper: kitchenHelpers) {
-                    System.out.println(helper.getName() + "'s stock:" + helper.getHelperIngredients());
-                }
                 System.out.println();
                 String ingredient = chef.yell();
                 System.out.println(chef.getName() + ": " + ingredient + "!");
                 boolean isIngredientAvailable = false;
                 for (KitchenHelper helper : kitchenHelpers) {
+                    System.out.println(helper.getName() + "'s stock: " + helper.getHelperIngredients());
                     String ingredientFromHelper = helper.getHelperIngredient(ingredient);
                     if (ingredientFromHelper != null) {
                         isIngredientAvailable = true;
                         System.out.println(helper.getName() + ": I have the ingredient: " + ingredient + ". Here you go.");
+
                         for (Employee kitchenStaff : allKitchenStaff) {
                             kitchenStaff.work(ingredient);
                         }
