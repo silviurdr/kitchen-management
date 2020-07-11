@@ -42,6 +42,6 @@ public abstract class Employee implements Work{
         return employeeTax;
     }
 
-    public abstract void work();
+    public abstract void work(String ingredient);
 
 }

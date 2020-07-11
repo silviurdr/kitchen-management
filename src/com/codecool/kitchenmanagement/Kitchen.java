@@ -39,6 +39,9 @@ public class Kitchen {
                     if (ingredientFromHelper != null) {
                         isIngredientAvailable = true;
                         System.out.println("I've found the ingredient: " + ingredient);
+                        for (Employee kitchenStaff: allKitchenStaff) {
+                            kitchenStaff.work(ingredient);
+                        }
                         break;
                     }
                 }

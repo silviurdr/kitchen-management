@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 
 public class Chef extends Cook implements KnifeAvailability{
 
-
+    private boolean hasKnife = false;
     private ArrayList<String> allIngredients = new ArrayList<>();
 
 
@@ -32,9 +32,13 @@ public class Chef extends Cook implements KnifeAvailability{
         Stream.of(Ingredient.values()).forEach(ing -> allIngredients.add(ing.getName()));
     }
 
-    public void work() {
+    public void work(String ingredient) {
         if (getDayToReceiveKnife() == this.getWorkingDay()) {
             System.out.println("ANNOUNCEMENT: Chef(" + this.getName() + "): I received knife");
+            hasKnife = true;
+        }
+        if (hasKnife) {
+            System.out.println("Chef " + this.getName() + ": I have a knife but I don't want to cook the " + ingredient);
         }
         this.addWorkingDay();
     }

@@ -2,6 +2,6 @@ package com.codecool.kitchenmanagement.staff;
 
 public interface Work {
 
-    void work();
+    void work(String ingredient);
 
 }

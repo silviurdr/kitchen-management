@@ -3,7 +3,7 @@ package com.codecool.kitchenmanagement.staff;
 import java.time.LocalDate;
 import java.util.Random;
 
-public class Cook extends Employee implements KnifeAvailability{
+public class Cook extends Employee implements KnifeAvailability, Work{
 
 
     private boolean hasKnife = false;
@@ -44,13 +44,13 @@ public class Cook extends Employee implements KnifeAvailability{
     }
 
 
-    public void work() {
+    public void work(String ingredient) {
         if (this.getDayToReceiveKnife() == this.getWorkingDay()) {
             setHasKnife();
             System.out.println("ANNOUNCEMENT: Cook(" + this.getName() + "): I received knife");
         }
         if (hasKnife) {
-            System.out.println("Cook(" + this.getName() + ") is cooking");
+            System.out.println("Cook(" + this.getName() + ") is cooking the " + ingredient);
         }
         this.addWorkingDay();
     }

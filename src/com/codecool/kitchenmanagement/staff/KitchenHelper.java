@@ -34,7 +34,7 @@ public class KitchenHelper extends Employee {
 
 
     @Override
-    public void work() {
+    public void work(String ingredient) {
 
     }
 
