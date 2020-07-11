@@ -7,6 +7,7 @@ import com.codecool.kitchenmanagement.staff.KitchenHelper;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -28,7 +29,10 @@ public class Kitchen {
 
         while (true) {
             Scanner sc = new Scanner(System.in);
-            if (sc.nextInt() == 1) {
+            String userSelection = null;
+            System.out.print("Press 1 to start the restaurant activity or 0 to close the restaurant: ");
+            userSelection = sc.next();
+            if (userSelection.equals("1")) {
                 String ingredient = chef.yell();
                 boolean isIngredientAvailable = false;
                 for (KitchenHelper helper : kitchenHelpers) {
@@ -39,17 +43,21 @@ public class Kitchen {
                         break;
                     }
                 }
-
                 if (!isIngredientAvailable) {
                     System.out.println("We're all out!");
                 }
-            }
+            } else if (userSelection.equals("0")) closeRestaurant();
+            else System.out.println("Please enter a valid option!");
         }
     }
 
-
     public void setChef(Chef chef) {
         this.chef = chef;
+    }
+
+    public void closeRestaurant() {
+        System.out.println("Good job, everyone! Go home and rest.");
+        System.exit(0);
     }
 
 
