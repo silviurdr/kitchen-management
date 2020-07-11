@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.stream.Stream;
 
-public class Chef extends Cook implements KnifeAvailability{
+public class Chef extends Cook implements KnifeAvailability {
 
     private boolean hasKnife = false;
     private ArrayList<String> allIngredients = new ArrayList<>();

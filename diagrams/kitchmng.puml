@@ -8,8 +8,6 @@ package "parent" {
     together {
 
 
-
-
         class Cooking {
 
         }
@@ -39,7 +37,6 @@ package "parent" {
 
         class Chef {
 
-
         - ingredients: ArrayList<String>
         - hasKnife: boolean
         + askForIngredient(String): String
@@ -65,7 +62,6 @@ package "parent" {
 
         }
 
-
     }
 
 class Chef extends Employee
@@ -75,9 +71,7 @@ class Cook implements KnifeAvailability
 class KitchenHelper extends Employee
 
 
-
 }
-
 
 
 @enduml

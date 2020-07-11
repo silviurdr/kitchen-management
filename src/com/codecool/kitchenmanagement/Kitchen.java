@@ -28,18 +28,28 @@ public class Kitchen {
     public void startWork() {
 
         while (true) {
+            System.out.println();
             Scanner sc = new Scanner(System.in);
             System.out.print("Press 1 to start the restaurant activity or 0 to close the restaurant: ");
             String userSelection = sc.next();
             if (userSelection.equals("1")) {
+                System.out.println();
+                System.out.println("NEW ORDER!\n");
+
+                System.out.println("CURRENT STOCK");
+                for (KitchenHelper helper: kitchenHelpers) {
+                    System.out.println(helper.getName() + "'s stock:" + helper.getHelperIngredients());
+                }
+                System.out.println();
                 String ingredient = chef.yell();
+                System.out.println(chef.getName() + ": " + ingredient + "!");
                 boolean isIngredientAvailable = false;
                 for (KitchenHelper helper : kitchenHelpers) {
                     String ingredientFromHelper = helper.getHelperIngredient(ingredient);
                     if (ingredientFromHelper != null) {
                         isIngredientAvailable = true;
-                        System.out.println("I've found the ingredient: " + ingredient);
-                        for (Employee kitchenStaff: allKitchenStaff) {
+                        System.out.println(helper.getName() + ": I have the ingredient: " + ingredient + ". Here you go.");
+                        for (Employee kitchenStaff : allKitchenStaff) {
                             kitchenStaff.work(ingredient);
                         }
                         break;
@@ -53,13 +63,9 @@ public class Kitchen {
         }
     }
 
-    public void setChef(Chef chef) {
-        this.chef = chef;
-    }
-
     public void closeRestaurant() {
         System.out.println("Good job, everyone! Pay your taxes and then go home and rest.");
-        for (Employee employee: allKitchenStaff) {
+        for (Employee employee : allKitchenStaff) {
             employee.createTaxReport();
         }
         System.exit(0);

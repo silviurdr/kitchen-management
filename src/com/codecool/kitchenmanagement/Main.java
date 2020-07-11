@@ -12,9 +12,9 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
+        // write your code here
 
-       List<Employee> allKitchenStaff = new ArrayList<>();
+        List<Employee> allKitchenStaff = new ArrayList<>();
 
         Chef chef = new Chef("Boris", LocalDate.of(1956, 5, 30), 45.6);
 
@@ -35,7 +35,7 @@ public class Main {
         List<KitchenHelper> kitchenHelpers = new ArrayList<>();
 
         KitchenHelper helper1 = new KitchenHelper("Sadique", LocalDate.of(1999, 8, 13), 5.4);
-        KitchenHelper helper2= new KitchenHelper("Matti", LocalDate.of(2003, 7, 14), 5.6);
+        KitchenHelper helper2 = new KitchenHelper("Matti", LocalDate.of(2003, 7, 14), 5.6);
         KitchenHelper helper3 = new KitchenHelper("Clement", LocalDate.of(1967, 4, 20), 5.5);
         kitchenHelpers.add(helper1);
         allKitchenStaff.add(helper1);
@@ -50,13 +50,9 @@ public class Main {
         kitchen.startWork();
 
 
-//        System.out.println();
-//
-//        System.out.println("NEW ORDER!\n");
-//
-//        System.out.println(helper1.getHelperIngredients().values());
+        System.out.println();
 
-
+        System.out.println("NEW ORDER!\n");
 
 
 
