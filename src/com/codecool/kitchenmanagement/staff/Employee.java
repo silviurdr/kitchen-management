@@ -2,12 +2,14 @@ package com.codecool.kitchenmanagement.staff;
 
 import java.time.LocalDate;
 
-public abstract class Employee{
+public abstract class Employee implements Work{
 
     private String name;
     private LocalDate birthDate;
     private Double salary;
     private Double taxLevel;
+
+    private String employeeType;
 
 
     public Employee(String name, LocalDate birthDate, Double salary) {
@@ -17,13 +19,22 @@ public abstract class Employee{
     }
 
 
+    public String getEmployeeType() {
+        return employeeType;
+    }
+
+    public void setEmployeeType(String employeeType) {
+        this.employeeType = employeeType;
+    }
+
+
     public String getName() {
         return name;
     }
 
 
     public void createTaxReport() {
-        System.out.println(this.getName() + ": I am paying my taxes: " + calculateTaxes()  + " EUR");
+        System.out.println("(" + this.getEmployeeType() + ")" + this.getName() + ": I am paying my taxes: " + calculateTaxes()  + " EUR");
     }
 
     public String calculateTaxes() {
@@ -32,7 +43,5 @@ public abstract class Employee{
     }
 
     public abstract void work();
-
-
 
 }

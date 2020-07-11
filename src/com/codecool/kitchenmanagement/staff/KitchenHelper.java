@@ -18,6 +18,7 @@ public class KitchenHelper extends Employee {
     public KitchenHelper(String name, LocalDate birthDate, Double salary) {
         super(name, birthDate, salary);
         addIngredients();
+        this.setEmployeeType("Kitchen Helper");
     }
 
 

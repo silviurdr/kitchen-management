@@ -13,6 +13,7 @@ public class Cook extends Employee implements KnifeAvailability{
     public Cook(String name, LocalDate birthDate, Double salary) {
         super(name, birthDate, salary);
         setDayToReceiveKnife();
+        this.setEmployeeType("Cook");
     }
 
     @Override
