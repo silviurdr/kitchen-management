@@ -1,7 +1,6 @@
 package com.codecool.kitchenmanagement.staff;
 
 import java.time.LocalDate;
-import java.util.Random;
 
 public abstract class Employee{
 
@@ -22,13 +21,15 @@ public abstract class Employee{
         return name;
     }
 
-//    public void createTaxReport() {
-//        this.taxes = this.salary * 99 / 100 ;
-//    }
-//
-//    public Double getTaxes() {
-//        return this.taxes;
-//    }
+
+    public void createTaxReport() {
+        System.out.println(this.getName() + ": I am paying my taxes: " + calculateTaxes()  + " EUR");
+    }
+
+    public String calculateTaxes() {
+        String employeeTax =  String.format("%.2f", this.salary * 99 / 100);
+        return employeeTax;
+    }
 
     public abstract void work();
 

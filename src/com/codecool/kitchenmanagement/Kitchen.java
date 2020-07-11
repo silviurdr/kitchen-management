@@ -5,33 +5,32 @@ import com.codecool.kitchenmanagement.staff.Cook;
 import com.codecool.kitchenmanagement.staff.Employee;
 import com.codecool.kitchenmanagement.staff.KitchenHelper;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
 public class Kitchen {
 
 
+    List<Employee> allKitchenStaff;
+
     private List<Cook> cooks;
     private List<KitchenHelper> kitchenHelpers;
-
     private Chef chef;
 
-    public Kitchen(List<Cook> cooks, List<KitchenHelper> kitchenHelpers, Chef chef) {
+
+    public Kitchen(List<Cook> cooks, List<KitchenHelper> kitchenHelpers, Chef chef, List<Employee> kitchenStaff) {
         this.cooks = cooks;
         this.kitchenHelpers = kitchenHelpers;
         this.chef = chef;
+        this.allKitchenStaff = kitchenStaff;
     }
 
     public void startWork() {
 
         while (true) {
             Scanner sc = new Scanner(System.in);
-            String userSelection = null;
             System.out.print("Press 1 to start the restaurant activity or 0 to close the restaurant: ");
-            userSelection = sc.next();
+            String userSelection = sc.next();
             if (userSelection.equals("1")) {
                 String ingredient = chef.yell();
                 boolean isIngredientAvailable = false;
@@ -56,7 +55,10 @@ public class Kitchen {
     }
 
     public void closeRestaurant() {
-        System.out.println("Good job, everyone! Go home and rest.");
+        System.out.println("Good job, everyone! Pay your taxes and then go home and rest.");
+        for (Employee employee: allKitchenStaff) {
+            employee.createTaxReport();
+        }
         System.exit(0);
     }
 

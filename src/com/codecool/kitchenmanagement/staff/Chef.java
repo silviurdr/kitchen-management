@@ -6,7 +6,6 @@ import com.codecool.kitchenmanagement.enums.Ingredient;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.Scanner;
 import java.util.stream.Stream;
 
 public class Chef extends Cook implements KnifeAvailability{
